@@ -15,15 +15,16 @@ public class Main {
         s1.setName("scot");
         s1.setAge(1);
 
-//        Configuration cfg = new Configuration();
-//        cfg.addAnnotatedClass(org.example.Student.class);
-//        cfg.configure("hibernate.cfg.xml");
+        Configuration cfg = new Configuration();
+        cfg.addAnnotatedClass(org.example.Student.class);
+        cfg.configure("hibernate.cfg.xml");
 
 
-        SessionFactory sf = new Configuration()
-                .addAnnotatedClass(org.example.Student.class)
-                .configure("hibernate.cfg.xml")
-                .buildSessionFactory();                                        //cfg.buildSessionFactory();
+//        SessionFactory sf = new Configuration()
+//                .addAnnotatedClass(org.example.Student.class)
+//                .configure("hibernate.cfg.xml")
+//                .buildSessionFactory();
+         SessionFactory sf = cfg.buildSessionFactory();
 
 
         Session session = sf.openSession();
