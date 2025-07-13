@@ -10,10 +10,10 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
 
-        Student s1 = new Student();
-        s1.setRoll_no(6);
-        s1.setName("scot");
-        s1.setAge(1);
+        Student s1 = null;
+//        s1.setRoll_no(6);
+//        s1.setName("scot");
+//        s1.setAge(1);
 
         Configuration cfg = new Configuration();
         cfg.addAnnotatedClass(org.example.Student.class);
@@ -28,13 +28,17 @@ public class Main {
 
 
         Session session = sf.openSession();
-        Transaction transaction = session.beginTransaction();
+//        Transaction transaction = session.beginTransaction();
+//
+//        session.persist(s1);
+//        transaction.commit();
 
-        session.persist(s1);
-        transaction.commit();
+        s1 = session.get(Student.class,1);
 
         session.close();
         sf.close();
+
+        System.out.println(s1);
 
 
     }
